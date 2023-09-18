@@ -2,7 +2,11 @@
 // Created by jonel on 9/19/2023.
 //
 #include <iostream>
+#include "istring.h"
+
 
 int main(){
-    std::cout << "Hello, World!" << std::endl;
+
+    istr::istring s = "Hello, World!";
+    std::cout<<s<<std::endl;
 }

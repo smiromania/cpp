@@ -5,14 +5,14 @@
 #ifndef CPP_ISTRING_H
 #define CPP_ISTRING_H
 
-namespace istr {
+namespace ion {
 
-    class istring {
+    class string {
     private:
         char *str;
     public:
-        istring();
-        istring(const char *s){
+        string();
+        string(const char *s){
             str = new char[strlen(s) + 1];
             strcpy(str, s);
         };
@@ -25,15 +25,30 @@ namespace istr {
             }
             return false;
         };
-        friend std::ostream &operator<<(std::ostream &os, const istring &s){
+        friend std::ostream &operator<<(std::ostream &os, const string &s){
             os << s.str;
             return os;
         };
-        friend std::istream &operator>>(std::istream &is, istring &s){
+        friend std::istream &operator>>(std::istream &is, string &s){
             is >> s.str;
             return is;
         }
-        ~istring(){
+        bool operator==(const char *s){
+            return strcmp(str, s) == 0;
+        }
+        bool operator!=(const char *s){
+            return strcmp(str, s) != 0;
+        }
+        bool operator<(const char *s){
+            return strcmp(str, s) < 0;
+        }
+        bool operator>(const char *s){
+            return strcmp(str, s) > 0;
+        }
+        uint64_t length(){
+            return strlen(str);
+        }
+        ~string(){
             delete[] str;
         };
     };

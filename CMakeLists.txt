@@ -3,4 +3,4 @@ project(MyProjectName)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(MyProjectName main.cpp istring.h istring.cpp)
+add_executable(MyProjectName main.cpp string.h istring.cpp)

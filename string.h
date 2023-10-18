@@ -1,6 +1,7 @@
 //
 // Created by jonel on 9/19/2023.
 //
+#include <cstdint>
 #include <cstring>
 #ifndef CPP_ISTRING_H
 #define CPP_ISTRING_H

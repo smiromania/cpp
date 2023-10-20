@@ -120,7 +120,6 @@ namespace ion {
             data[sizeOf] = value;
             sizeOf++;
         }
-
     };
 
 

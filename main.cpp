@@ -27,6 +27,5 @@ int main(){
     v.push_back(3);
     std::cout << v[1] << std::endl<<v.size()<<std::endl;
 
-
     return 0;
 }

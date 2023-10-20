@@ -6,6 +6,7 @@
 #ifndef CPP_ISTRING_H
 #define CPP_ISTRING_H
 
+
 namespace ion {
 
     class string {
@@ -60,7 +61,67 @@ namespace ion {
         }
         return x;
     }
+    template <typename T>
+    class vector{
+    private:
+        T *data;
+        uint64_t sizeOf;
+        uint64_t capacityOf;
+    public:
+        vector(){
+            data = nullptr;
+            sizeOf = 0;
+            capacityOf = 0;
+        };
+        vector(const vector &other){
+            data = new T[other.capacityOf];
+            sizeOf = other.sizeOf;
+            capacityOf = other.capacityOf;
+            for(uint64_t i = 0; i < sizeOf; i++){
+                data[i] = other.data[i];
+            }
+        };
+        vector &operator=(const vector &other){
+            if(this == &other){
+                return *this;
+            }
+            delete[] data;
+            data = new T[other.capacityOf];
+            sizeOf = other.sizeOf;
+            capacityOf = other.capacityOf;
+            for(uint64_t i = 0; i < sizeOf; i++){
+                data[i] = other.data[i];
+            }
+            return *this;
 
+        };
+        T &operator[](uint64_t index){
+            return data[index];
+        };
+        ~vector(){
+            delete[] data;
+        };
+        uint64_t size(){
+            return sizeOf;
+        }
+        uint64_t capacity(){
+            return capacityOf;
+        }
+        void push_back(T value){
+            if(sizeOf == capacityOf){
+                capacityOf *= 2;
+                T *temp = new T[capacityOf];
+                for(uint64_t i = 0; i < sizeOf; i++){
+                    temp[i] = data[i];
+                }
+                delete[] data;
+                data = temp;
+            }
+            data[sizeOf] = value;
+            sizeOf++;
+        }
+
+    };
 
 
 } // istr

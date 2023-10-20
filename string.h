@@ -121,8 +121,6 @@ namespace ion {
             sizeOf++;
         }
     };
-
-
 } // istr
 
 #endif //CPP_ISTRING_H

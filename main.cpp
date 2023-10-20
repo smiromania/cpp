@@ -4,7 +4,6 @@
 #include <iostream>
 #include "string.h"
 
-
 int main(){
     ion::string s = "Syntax:<nominal resistance> <measured resistance> \nInput nominal resistance and measured resistance, input -1 to quit:";
     std::cout<<s<<std::endl;
